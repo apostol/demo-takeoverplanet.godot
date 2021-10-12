@@ -1,3 +1,20 @@
+# Godot-specific ignores
+.import/
+export.cfg
+export_presets.cfg
+
+# Imported translations (automatically generated from CSV files)
+*.translation
+
+# Mono-specific ignores
+.mono/
+data_*/
+
+#Binares
+bin/
+build/
+lib/
+
 # These are some examples of commonly ignored file patterns.
 # You should customize this list as applicable to your project.
 # Learn more about .gitignore:
@@ -47,4 +64,3 @@ Thumbs.db
 *.flv
 *.mov
 *.wmv
-

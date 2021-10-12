@@ -1,0 +1,96 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/UI/Title.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/UI/QuitButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UI/ChangeSceneButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/main-screen-bg.jpg" type="Texture" id=4]
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=7]
+
+[node name="EndScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="TextureRect" parent="."]
+anchor_right = 1.003
+anchor_bottom = 1.0
+margin_right = -0.0720215
+margin_bottom = -3.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -118.0
+margin_top = -239.48
+margin_right = 118.0
+margin_bottom = -107.48
+text = "Your final score is %s
+Planets: %s
+Ships: %s
+Colonizer: %s
+Resources: %s"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" parent="." instance=ExtResource( 1 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -199.0
+margin_top = -289.505
+margin_right = 199.0
+margin_bottom = -247.505
+text = "Congratulations, you finished the game!"
+autowrap = true
+clip_text = true
+uppercase = false
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -111.0
+margin_top = -431.973
+margin_right = 111.0
+margin_bottom = -255.973
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayAgain" parent="Menu" instance=ExtResource( 3 )]
+margin_top = 38.0
+margin_right = 222.0
+margin_bottom = 68.0
+text = "Play Again"
+next_scene_path = "res://src/Screens/MainScreen.tscn"
+
+[node name="MenuButton" parent="Menu" instance=ExtResource( 3 )]
+margin_top = 72.0
+margin_right = 222.0
+margin_bottom = 102.0
+text = "Menu"
+next_scene_path = "res://src/Screens/MainScreen.tscn"
+
+[node name="QuitButton" parent="Menu" instance=ExtResource( 2 )]
+margin_top = 106.0
+margin_right = 222.0
+margin_bottom = 136.0
+
+[node name="Title" parent="." instance=ExtResource( 1 )]
+margin_top = -48.0
+size_flags_vertical = 1

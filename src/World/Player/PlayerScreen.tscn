@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/World/Player/PlayerScreenLogic.gd" type="Script" id=1]
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=2]
+
+[node name="PlayerHumanInfo" type="Control"]
+margin_right = 1024.0
+margin_bottom = 600.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 114.0
+margin_bottom = 80.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" type="Label" parent="VBoxContainer"]
+margin_right = 114.0
+margin_bottom = 24.0
+text = "Player: %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Planets" type="Label" parent="VBoxContainer"]
+margin_top = 28.0
+margin_right = 114.0
+margin_bottom = 52.0
+text = "Planets: %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bots" type="Label" parent="VBoxContainer"]
+margin_top = 56.0
+margin_right = 114.0
+margin_bottom = 80.0
+text = "Bots: %s"
