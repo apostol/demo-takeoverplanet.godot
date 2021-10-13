@@ -1,5 +1,5 @@
-class_name StarSystemSpawner
 extends Node2D
+#class_name StarSystemSpawner
 
 func spawn_star_system(rnd: RandomNumberGenerator, cluster_radius: float) -> void:
 	_spawn_star_system_cluster(rnd, cluster_radius)
@@ -7,8 +7,8 @@ func spawn_star_system(rnd: RandomNumberGenerator, cluster_radius: float) -> voi
 
 func _spawn_star_system_cluster(
 	rnd: RandomNumberGenerator, 
-	cluster_radius: float) -> StarSystem:
-	var new_cluster: StarSystem = _create_star_system(
+	cluster_radius: float):
+	var new_cluster = _create_star_system(
 			rnd, 
 			Vector2(0,0), 
 			cluster_radius)
@@ -33,7 +33,7 @@ func _spawn_star_system_cluster(
 func _create_star_system(
 	rng: RandomNumberGenerator, 
 	spawn_position: Vector2,
-	cluster_radius: float) -> StarSystem:
+	cluster_radius: float):
 	var cluster := StarSystem.new()
 	add_child(cluster)
 	cluster.setup(spawn_position)

@@ -5,8 +5,8 @@ export var size: Vector2
 
 onready var draw_layer: PlanetDrawLayer = get_node("DrawLayer")
 
-func setup(rnd: RandomNumberGenerator, offset, scale: float)-> void:
-	translate(offset)
+func setup(rnd: RandomNumberGenerator, orbit, scale: float)-> void:
+	translate(orbit)
 	#рассчитаем зону клика для анимации
 	self.scale = Vector2(scale,scale)
 	var frame = self.frames.get_frame("default",0)

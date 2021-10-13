@@ -1,5 +1,5 @@
-class_name StarSystem
 extends Node2D
+class_name StarSystem
 
 # Star System signals
 signal star_system_depleted # звездная система истощена - в ней больше нет ресурсов
@@ -27,6 +27,9 @@ func setup(location: Vector2) -> void:
 func get_count_of_planets() -> int:
 	return count_of_planets
 
+func get_planets() -> Array:
+	return get_children()
+
 func spawn_planets(
 	rnd: RandomNumberGenerator,
 	settings: StarSystemSettings,
@@ -47,7 +50,7 @@ func _create_planet(
 	rnd: RandomNumberGenerator,
 	offset: Vector2
 ) -> Planet:
-	var planet: Planet = PlanetScene.instance()
+	var planet = PlanetScene.instance()
 	add_child(planet)
 	planet.setup(id, rnd, offset)
 	return planet

@@ -1,5 +1,5 @@
-class_name PlayerScreenLogic
 extends Node
+#class_name PlayerScreenLogic
 
 onready var player_label = get_node("VBoxContainer/Player")
 onready var planets_label = get_node("VBoxContainer/Planets")

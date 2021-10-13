@@ -1,7 +1,5 @@
-class_name PlayerBot
-extends Node
+extends Player
+#class_name PlayerBot
 
-onready var data: PlayerData = get_node("PlayerBotData")
+onready var data = get_node("PlayerBotData")
 
-func _ready():
-	pass # Replace with function body.

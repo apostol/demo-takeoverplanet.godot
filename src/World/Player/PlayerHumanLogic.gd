@@ -1,8 +1,7 @@
-class_name PlayerHuman
-extends Node
+extends Player
+#class_name PlayerHuman
 
-onready var data: PlayerData = get_node("PlayerHumanData")
-
+onready var data = get_node("PlayerHumanData")
 
 func _ready():
 	pass # Replace with function body.

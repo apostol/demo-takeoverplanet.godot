@@ -1,5 +1,5 @@
-class_name GameCamera
 extends Camera2D
+#class_name GameCamera
 
 export var speed := Vector2()
 export var zoom_factor := 0.0
@@ -24,15 +24,15 @@ func _ready() -> void:
 	Events.connect("object_is_tracking", self, "_on_object_is_selected")
 	Events.connect("star_system_is_spawned", self, "_on_star_system_is_spawned")
 
-func _on_object_is_selected(object: GameObject) -> void:
+func _on_object_is_selected(object) -> void:
 	selected = object
 
-func _on_star_system_is_spawned(star_system: StarSystem) -> void:
+func _on_star_system_is_spawned(star_system) -> void:
 	print("Star system is spawned")
 	pass
 	var targets: Array = []
 	for _i in  star_system.get_children():
-		if _i is Planet:
+		if _i.is_class("Planet"):
 			targets.append(_i)
 
 	#var p = Vector2.ZERO

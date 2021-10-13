@@ -1,20 +1,20 @@
-class_name PlanetScreen
 extends Control
+class_name PlanetScreen
 
 onready var scene_tree: = get_tree() #для уменьшения нагрузки на процессор
 onready var planet_name: Label = get_node("PlanetName")
 
-var planet:Planet = null
+var planet = null
 
 func _ready() ->void:
 	Events.connect("planet_is_selected", self, "_on_planet_selected")
 	Events.connect("object_is_tracking", self, "_on_object_is_tracking")
 
-func _on_object_is_tracking(object: GameObject) -> void:
+func _on_object_is_tracking(object) -> void:
 	if !object:
 		planet = null
 
-func _on_planet_selected(planet: Planet) -> void:
+func _on_planet_selected(planet) -> void:
 	self.planet = planet
 	update_interface()
 

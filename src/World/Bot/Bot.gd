@@ -1,11 +1,11 @@
-class_name Bot
 extends GameObject
+class_name Bot
 
 onready var count_label = get_node("Count")
 
-var speed := 100
+var speed := 200
 var target: Vector2
-var source: GameObject
+var source
 var count: int = 0
 var direction: Vector2
 
@@ -29,3 +29,12 @@ func die() -> void:
 func _process(delta):
 	if target:
 		position += direction * speed * delta
+
+func _on_Bot_area_entered(area):
+	var _planet = area.get_parent()
+	if _planet is Planet:
+		if source != _planet:
+			_planet.emit_signal("planet_is_attacked", self)
+			Events.emit_signal("planet_is_attacked", area, self)
+
+

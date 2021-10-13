@@ -1,5 +1,5 @@
-class_name Star
 extends GameObject
+#class_name Star
 
 onready var sprite := get_node("Animation")
 onready var collision := get_node("CollisionShape2D")

@@ -1,9 +1,11 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://assets/sprites/planet.png" type="Texture" id=1]
-[ext_resource path="res://src/World/StarSystem/Planet/Planet.gd" type="Script" id=2]
-[ext_resource path="res://src/World/StarSystem/Planet/PlanetAnimation.gd" type="Script" id=3]
-[ext_resource path="res://src/World/StarSystem/Planet/PlanetDrawLayer.gd" type="Script" id=4]
+[ext_resource path="res://src/World/StarSystem/Planet/PlanetModel.gd" type="Script" id=2]
+[ext_resource path="res://src/World/StarSystem/Planet/PlanetViewAnimation.gd" type="Script" id=3]
+[ext_resource path="res://src/World/StarSystem/Planet/PlanetController.gd" type="Script" id=4]
+[ext_resource path="res://src/World/StarSystem/Planet/PlanetViewAnimationDrawLayer.gd" type="Script" id=5]
+[ext_resource path="res://src/World/StarSystem/Planet/PlanetView.gd" type="Script" id=6]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -213,27 +215,30 @@ animations = [ {
 "speed": 24.0
 } ]
 
-[sub_resource type="OccluderPolygon2D" id=52]
-polygon = PoolVector2Array( -37.7501, -36.8216, -51.8922, -5.70889, -43.4069, 32.4749, -0.98053, 52.2738, 35.789, 38.1317, 48.5169, 2.7764, 37.2032, -32.5789, -0.98053, -49.5495 )
-
-[sub_resource type="CircleShape2D" id=53]
+[sub_resource type="CircleShape2D" id=52]
 radius = 50.1597
 
-[node name="Planet" type="Area2D"]
+[node name="Planet" type="Node"]
+script = ExtResource( 4 )
+
+[node name="PlanetModel" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="Animation" type="AnimatedSprite" parent="."]
+[node name="PlanetView" type="Area2D" parent="."]
+script = ExtResource( 6 )
+
+[node name="Animation" type="AnimatedSprite" parent="PlanetView"]
 frames = SubResource( 51 )
-frame = 22
+frame = 16
 speed_scale = 0.6
 playing = true
 script = ExtResource( 3 )
 
-[node name="DrawLayer" type="Node2D" parent="Animation"]
+[node name="DrawLayer" type="Node2D" parent="PlanetView/Animation"]
 z_index = -1
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
-[node name="Label" type="Label" parent="Animation"]
+[node name="Label" type="Label" parent="PlanetView/Animation"]
 visible = false
 margin_left = -70.0
 margin_top = -70.0
@@ -244,7 +249,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="Animation"]
+[node name="Label2" type="Label" parent="PlanetView/Animation"]
 visible = false
 margin_left = -70.0
 margin_top = 70.0
@@ -255,11 +260,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Animation"]
-visible = false
-occluder = SubResource( 52 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 53 )
-
-[connection signal="area_entered" from="." to="." method="_on_Planet_area_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlanetView"]
+shape = SubResource( 52 )

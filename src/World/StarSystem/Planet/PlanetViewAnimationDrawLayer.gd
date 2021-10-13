@@ -1,5 +1,5 @@
-class_name PlanetDrawLayer
 extends Node2D
+class_name PlanetDrawLayer
 
 export var isEnabled = false
 
