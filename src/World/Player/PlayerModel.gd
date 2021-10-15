@@ -1,5 +1,11 @@
-class_name PlayerData
 extends Node
+
+
+export var player_id: int = 0 #идентификатор игрока
+export var player_name := "Unknown"
+export var ships = {} #количество кораблей на каждой планете
+
+var color: ColorRect
 
 signal score_updated
 signal ppl_updated
@@ -17,11 +23,13 @@ var planets: = {
 	"destroyed": 0 #уничтожено
 } setget set_planets, get_planets
 
-var ships: = {
-	"built": 0, #построено
-	"destoroyed": 0, #уничтожено
-	"taked": 0, #захвачено
-} setget set_ships, get_ships
+
+
+#var ships: = {
+#	"built": 0, #построено
+#	"destoroyed": 0, #уничтожено
+#	"taked": 0, #захвачено
+#} setget set_ships, get_ships
 
 var resources: = {
 	"harvested": 0, #собрано
@@ -34,6 +42,8 @@ var colonizers: = {
 	#умерло своей смертью
 	#убито
 } setget set_ppl, get_ppl
+
+
 
 #сброс данных БЕЗ вызова событий, та как находимся в одном классе оработчике.
 func reset() -> void:

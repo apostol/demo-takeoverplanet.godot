@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "Actor",
+"language": "GDScript",
+"path": "res://src/World/Player/Actor/Actor.gd"
+}, {
 "base": "GameObject",
 "class": "Bot",
 "language": "GDScript",
@@ -72,32 +77,22 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Planet",
 "language": "GDScript",
-"path": "res://src/World/StarSystem/Planet/PlanetController.gd"
+"path": "res://src/World/Planet/PlanetController.gd"
 }, {
 "base": "Node2D",
 "class": "PlanetDrawLayer",
 "language": "GDScript",
-"path": "res://src/World/StarSystem/Planet/PlanetViewAnimationDrawLayer.gd"
+"path": "res://src/World/Planet/PlanetViewAnimationDrawLayer.gd"
 }, {
 "base": "Control",
 "class": "PlanetScreen",
 "language": "GDScript",
-"path": "res://src/World/StarSystem/Planet/PlanetScreen.gd"
+"path": "res://src/World/Planet/PlanetScreen.gd"
 }, {
 "base": "Area2D",
 "class": "PlanetView",
 "language": "GDScript",
-"path": "res://src/World/StarSystem/Planet/PlanetView.gd"
-}, {
-"base": "Node",
-"class": "Player",
-"language": "GDScript",
-"path": "res://src/World/Player/Player.gd"
-}, {
-"base": "Node",
-"class": "PlayerData",
-"language": "GDScript",
-"path": "res://src/World/Player/PlayerData.gd"
+"path": "res://src/World/Planet/PlanetView.gd"
 }, {
 "base": "ColorRect",
 "class": "StarSky",
@@ -115,6 +110,7 @@ _global_script_classes=[ {
 "path": "res://src/Autoload/StarSystemSettings.gd"
 } ]
 _global_script_class_icons={
+"Actor": "",
 "Bot": "",
 "BotLogic": "",
 "GameObject": "",
@@ -131,8 +127,6 @@ _global_script_class_icons={
 "PlanetDrawLayer": "",
 "PlanetScreen": "",
 "PlanetView": "",
-"Player": "",
-"PlayerData": "",
 "StarSky": "",
 "StarSystem": "",
 "StarSystemSetings": ""

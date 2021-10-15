@@ -33,19 +33,24 @@ func setup(
 	view.connect("planet_is_touching", self, "_on_planet_is_touching")
 	view.connect("planet_is_selected", self, "_on_planet_is_selected")
 	view.connect("planet_bot_launched", self, "_on_planet_bot_launched")
+	model.connect("planet_ship_changed", self, "_on_planet_ship_changed")
 	
 	_add_timer(ship_generator_timer, "_on_ship_generator_timer")
 	_on_ship_generator_timer()
 	Events.emit_signal("planet_free", self)
 
+func _on_planet_ship_changed(value) -> void:
+	Events.emit_signal("planet_ship_changed", self, value)
 
 func _on_planet_change_type(type) -> void:
-	type.name = "PlanetType"
-	var _node = view.sprite.find_node(type.name, false, false)
+	var _name = "PlanetType"
+	var _node = view.sprite.find_node(_name, false, false)
 	if (_node):
 		view.sprite.remove_child(_node)
-	view.sprite.add_child(type)
-	type.visible = true
+	if type:
+		type.name = _name
+		view.sprite.add_child(type)
+		type.visible = true
 
 func _on_ship_generator_timer() -> void:
 	if (model.get_owner()):
@@ -89,12 +94,16 @@ func _add_timer(timer, func_name):
 func _on_planet_is_attacked(bot):
 	if bot.source != self: #если это не наш бот с этой планеты
 		var count = bot.get_count()
-		if count > model.planet_ship_amount:
-			model.planet_ship_amount = count - model.planet_ship_amount
-			model.set_owner(bot.get_owner())
-		elif count < model.planet_ship_amount:
-			model.planet_ship_amount = model.planet_ship_amount - count
+		if bot.get_owner() == model.get_owner():
+			#Это мои боты
+			model.planet_ship_amount = count + model.planet_ship_amount
 		else:
-			model.planet_ship_amount = 0
-			model.set_owner(null)
+			if count > model.planet_ship_amount:
+				model.planet_ship_amount = count - model.planet_ship_amount
+				model.set_owner(bot.get_owner())
+			elif count < model.planet_ship_amount:
+				model.planet_ship_amount = model.planet_ship_amount - count
+			else:
+				model.planet_ship_amount = 0
+				model.set_owner(null)
 		bot.die() #умерли прилетевшие боты

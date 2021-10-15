@@ -66,5 +66,10 @@ func set_planet_scale(value) -> void:
 	emit_signal("planet_scale_changed", planet_scale)
 
 func set_planet_ship_amount(value) -> void:
-	planet_ship_amount = value
+	if value > planet_max_ship_amount:
+		planet_ship_amount = planet_max_ship_amount
+	elif planet_ship_amount < 0 :
+		planet_ship_amount = 0
+	else:
+		planet_ship_amount = value
 	emit_signal("planet_ship_changed", planet_ship_amount)

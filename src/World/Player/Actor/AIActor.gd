@@ -1,4 +1,4 @@
-extends Node
+extends Actor
 
 
 # Declare member variables here. Examples:

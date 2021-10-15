@@ -10,8 +10,8 @@ signal star_system_is_occupied # зведная система захвачен�
 signal star_system_is_attacked # звездная система атакована
 
 # прототип для планеты
-const StarScene := preload("Star/Star.tscn")
-const PlanetScene := preload("Planet/Planet.tscn")
+const StarScene := preload("../Star/Star.tscn")
+const PlanetScene := preload("../Planet/Planet.tscn")
 
 var count_of_planets: = 0
 

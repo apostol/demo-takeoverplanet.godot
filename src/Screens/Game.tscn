@@ -1,15 +1,13 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/World/GameCamera.gd" type="Script" id=1]
 [ext_resource path="res://src/Screens/HUDScreen.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/World/GameWorld.gd" type="Script" id=4]
 [ext_resource path="res://src/Screens/CanvasLayer.gd" type="Script" id=5]
 [ext_resource path="res://assets/ui_theme.tres" type="Theme" id=6]
-[ext_resource path="res://src/World/Player/PlayersController.gd" type="Script" id=7]
+[ext_resource path="res://src/World/PlayersController.gd" type="Script" id=7]
 [ext_resource path="res://src/World/StarSystem/StarSystemSpawner.gd" type="Script" id=8]
 [ext_resource path="res://src/World/Bot/BotLogic.gd" type="Script" id=9]
-[ext_resource path="res://src/World/Player/PlayerEnemyScreen.tscn" type="PackedScene" id=11]
-[ext_resource path="res://src/World/Player/PlayerScreen.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/World/StarSystem/StarSystemScreen.tscn" type="PackedScene" id=13]
 
 [node name="GameWorld" type="Node"]
@@ -22,26 +20,21 @@ script = ExtResource( 1 )
 [node name="StarSystemSpawner" type="Node2D" parent="."]
 script = ExtResource( 8 )
 
+[node name="Players" type="Node" parent="."]
+script = ExtResource( 7 )
+
 [node name="Logics" type="Node" parent="."]
 
 [node name="BotLogic" type="Node" parent="Logics"]
 script = ExtResource( 9 )
-
-[node name="Players" type="Node" parent="."]
-script = ExtResource( 7 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource( 5 )
 
 [node name="StarSystemScreen" parent="CanvasLayer" instance=ExtResource( 13 )]
 
-[node name="PlayerEnemyInfo" parent="CanvasLayer" instance=ExtResource( 11 )]
-mouse_filter = 2
-
-[node name="PlayerInfo" parent="CanvasLayer" instance=ExtResource( 12 )]
-mouse_filter = 2
-
 [node name="UserInterface" parent="CanvasLayer" instance=ExtResource( 2 )]
+visible = false
 
 [node name="Label2" type="Label" parent="CanvasLayer"]
 visible = false

@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=2]
 
-[ext_resource path="res://src/World/StarSystem/Planet/asset/enemy_planet.gdshader" type="Shader" id=1]
+[ext_resource path="res://src/World/Planet/asset/my_planet.gdshader" type="Shader" id=1]
 
 [resource]
 shader = ExtResource( 1 )
@@ -12,10 +12,10 @@ shader_param/color2 = Color( 0, 0, 0, 0 )
 shader_param/color3 = Color( 0, 0, 0, 0 )
 shader_param/color4 = Color( 0, 0, 0, 0 )
 shader_param/color5 = Color( 0, 0, 0, 1 )
-shader_param/color6 = Color( 1, 0, 0, 0 )
+shader_param/color6 = Color( 0, 1, 0, 0 )
 shader_param/step1 = 0.159
 shader_param/step2 = 0.182
 shader_param/step3 = 0.233
 shader_param/step4 = 0.0
-shader_param/step5 = 0.103
-shader_param/step6 = 0.607
+shader_param/step5 = 0.163
+shader_param/step6 = 0.583
