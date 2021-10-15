@@ -15,7 +15,7 @@ var model #??????
 
 func setup(rnd, model) -> void:
 	self.model = model
-	self.model.connect("plane_scale_changed", self, "_on_planet_scale_changed")
+	self.model.connect("planet_scale_changed", self, "_on_planet_scale_changed")
 	rotate(model.planet_rotate)
 	
 	sprite.setup(rnd, model.planet_orbit, model.planet_scale)

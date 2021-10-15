@@ -19,7 +19,7 @@ func _on_planet_selected(planet) -> void:
 	update_interface()
 
 func update_interface() -> void:
-	planet_name.text = "%s" % planet.planet_name
+	planet_name.text = "%s" % planet.model.planet_name
 	return
 
 func _unhandled_input(event: InputEvent) -> void:

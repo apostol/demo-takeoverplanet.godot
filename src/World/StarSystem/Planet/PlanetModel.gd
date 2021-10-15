@@ -19,12 +19,15 @@ export var planet_max_ship_amount: int
 export var planet_ship_amount: int setget set_planet_ship_amount
 
 export var planet_id: int = -1
-export var planet_owner: int = -1
+
 export var planet_name := "Unknown"
 export var planet_speed : = 0.1
 export var planet_rotate : = 0.0
 export var planet_scale := 0.0 setget set_planet_scale
 export var planet_orbit := Vector2(0,0)
+
+var planet_owner
+
 
 func setup(
 		rnd,
@@ -43,6 +46,20 @@ func setup(
 	planet_max_population_amount = rnd.randf_range(planet_min_population_amount, planet_min_population_amount * 10) #Planet max population
 	planet_max_ship_amount = rnd.randf_range(planet_min_ship_amount, planet_min_ship_amount * 10) #planet max ship
 	planet_scale = 1 + planet_max_ship_amount/planet_min_ship_amount/10
+	Events.emit_signal("planet_free", get_parent())
+
+func get_planet_id() -> int:
+	return planet_id
+
+func set_owner(owner) -> void:
+	planet_owner = owner
+	if owner == null:
+		Events.emit_signal("planet_free", get_parent())
+	else:
+		Events.emit_signal("planet_is_occupied", get_parent(), owner)
+
+func get_owner():
+	return planet_owner
 
 func set_planet_scale(value) -> void:
 	planet_scale = value
@@ -51,5 +68,3 @@ func set_planet_scale(value) -> void:
 func set_planet_ship_amount(value) -> void:
 	planet_ship_amount = value
 	emit_signal("planet_ship_changed", planet_ship_amount)
-	
-	

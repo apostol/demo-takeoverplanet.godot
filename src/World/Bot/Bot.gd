@@ -6,11 +6,13 @@ onready var count_label = get_node("Count")
 var speed := 200
 var target: Vector2
 var source
+var bot_owner
 var count: int = 0
 var direction: Vector2
 
 func setup(source, target, count) -> void:
 	self.source = source
+	self.bot_owner = source.model.get_owner() #TODO: ссылка ли копия?
 	self.target = target
 	self.count = count
 	position = source.get_current_position()
@@ -20,6 +22,9 @@ func setup(source, target, count) -> void:
 
 func get_count() -> int:
 	return count
+
+func get_owner():
+	return bot_owner
 
 func die() -> void:
 	print_debug("Bot is died!")
