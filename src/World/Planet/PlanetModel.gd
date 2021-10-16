@@ -28,7 +28,6 @@ export var planet_orbit := Vector2(0,0)
 
 var planet_owner
 
-
 func setup(
 		rnd,
 		id, #ID

@@ -54,7 +54,9 @@ func _on_planet_change_type(type) -> void:
 
 func _on_ship_generator_timer() -> void:
 	if (model.get_owner()):
-		ship_amount_changed(min(10, model.planet_max_ship_amount-model.planet_ship_amount))
+		var _count = model.planet_max_ship_amount-model.planet_ship_amount
+		if _count>0:
+			ship_amount_changed(min(10, _count)) 
 	ship_generator_timer.start(1)
 
 func ship_amount_changed(value: int) -> int:
