@@ -26,18 +26,17 @@ func spawn(star_system)->void:
 	
 	var _planet_idx = rnd.randi_range(0, _list.size()-1)
 	var _planet = _list[_planet_idx]
-	_spawn_player(_planet, "PlayerLeft", player_green.instance(), player_screen_left)
+	_spawn_player(_planet, "PlayerLeft", player_green.instance(), player_screen_left.instance())
 	_list.remove(_planet_idx)
 	_planet_idx = rnd.randi_range(0, _list.size()-1)
 	_planet = _list[_planet_idx]
-	_spawn_player(_planet, "PlayerRight", player_red.instance(), player_screen_right)
+	_spawn_player(_planet, "PlayerRight", player_red.instance(), player_screen_right.instance())
 
 func _spawn_player(planet, playerName, playerColor, screen)->void:
 	var _player = player.instance()
-	_player.name = playerName
-	var _screen = screen.instance()
-	_screen.name = "PlayerScreen"
-	_player.add_child(_screen)
+	_player.add_child(screen)
+	screen.name = "PlayerScreen"
 	canvas.add_child(_player)
+	_player.name = playerName
 	_player_count +=1
 	_player.setup(_player_count, playerName, playerColor, planet)

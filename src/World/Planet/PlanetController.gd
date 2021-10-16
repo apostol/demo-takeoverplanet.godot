@@ -49,7 +49,7 @@ func _on_planet_change_type(type) -> void:
 		view.sprite.remove_child(_node)
 	if type:
 		type.name = _name
-		view.sprite.add_child(type)
+		view.sprite.add_child(type.duplicate())
 		type.visible = true
 
 func _on_ship_generator_timer() -> void:

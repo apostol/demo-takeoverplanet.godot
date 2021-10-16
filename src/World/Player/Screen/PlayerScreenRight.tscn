@@ -9,6 +9,7 @@ margin_left = -114.0
 margin_bottom = 72.0
 grow_horizontal = 0
 rect_pivot_offset = Vector2( 114, 0 )
+mouse_filter = 2
 custom_constants/separation = 0
 script = ExtResource( 1 )
 __meta__ = {
