@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/World/Player/Screen/LoseScreen.gd" type="Script" id=1]
 [ext_resource path="res://src/UI/QuitButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/UI/ChangeSceneButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Screens/Background.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/ui_theme.tres" type="Theme" id=6]
 [ext_resource path="res://src/UI/RetryButton.tscn" type="PackedScene" id=8]
 
@@ -16,6 +17,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="background" parent="." instance=ExtResource( 4 )]
 
 [node name="Label" type="Label" parent="."]
 anchor_right = 1.0
