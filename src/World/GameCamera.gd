@@ -28,8 +28,6 @@ func _on_object_is_selected(object) -> void:
 	selected = object
 
 func _on_star_system_is_spawned(star_system) -> void:
-	print("Star system is spawned")
-	pass
 	var targets: Array = []
 	for _i in  star_system.get_children():
 		if _i.is_class("Planet"):
@@ -93,8 +91,6 @@ func _input(event) -> void:
 func _process(delta) -> void:
 	if selected :
 		global_position = selected.get_current_position()
-		print(global_position)
-		
 
 	position.x = lerp(position.x, position.x + speed.x*1*zoom.x, 1 * delta)
 	position.y = lerp(position.y, position.y + speed.y*1*zoom.y, 1 * delta)

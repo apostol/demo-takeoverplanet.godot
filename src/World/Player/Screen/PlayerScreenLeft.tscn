@@ -1,58 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/World/Player/PlayerView.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui_theme.tres" type="Theme" id=2]
-
-[sub_resource type="Shader" id=1]
-code = "shader_type canvas_item;
-render_mode blend_add; //Comment this if you want another render mode.
-uniform vec2 center = vec2(0.5);
-uniform float size: hint_range(0.0,5.0) = 1.0; //change size to well, change the size of your gradient
-uniform vec2 squishness = vec2(1.0); // how squashed your gradient is
-
-//choose colors in the inspector
-uniform vec4 color1 : hint_color;
-uniform vec4 color2 : hint_color;
-uniform vec4 color3 : hint_color;
-uniform vec4 color4 : hint_color;
-uniform vec4 color5 : hint_color;
-uniform vec4 color6 : hint_color;
-
-//choose how far the colors are from each other in the inspector
-uniform float step1 : hint_range(0.0,1.0) = 0.159;
-uniform float step2 : hint_range(0.0,1.0) = 0.182;
-uniform float step3 : hint_range(0.0,1.0) = 0.233;
-uniform float step4 : hint_range(0.0,1.0) = 0.264;
-uniform float step5 : hint_range(0.0,1.0) = 0.265;
-uniform float step6 : hint_range(0.0,1.0) = 0.266;
-
-void fragment() {
-	float dist = distance(center*squishness,UV*squishness);
-	vec4 color = mix(color1, color2, smoothstep(step1*size, step2*size, dist));
-	color = mix(color, color3, smoothstep(step2*size, step3*size, dist));
-	color = mix(color, color4, smoothstep(step3*size, step4*size, dist));
-	color = mix(color, color5, smoothstep(step4*size, step5*size, dist));
-	color = mix(color, color6, smoothstep(step5*size, step6*size, dist));
-	COLOR = color;
-}"
-
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
-shader_param/center = Vector2( 0.5, 0.5 )
-shader_param/size = 1.0
-shader_param/squishness = Vector2( 1, 1 )
-shader_param/color1 = Color( 1, 0.00392157, 0.00392157, 0 )
-shader_param/color2 = Color( 0.760784, 0.101961, 0.101961, 0 )
-shader_param/color3 = Color( 0.447059, 0.141176, 0.141176, 0 )
-shader_param/color4 = Color( 0.878431, 0.0705882, 0.0705882, 0 )
-shader_param/color5 = Color( 0, 0, 0, 1 )
-shader_param/color6 = Color( 0, 1, 0, 0 )
-shader_param/step1 = 0.0
-shader_param/step2 = 0.0
-shader_param/step3 = 0.0
-shader_param/step4 = 0.0
-shader_param/step5 = 0.0
-shader_param/step6 = 0.545
 
 [node name="PlayerScreenLeft" type="VBoxContainer"]
 margin_right = 114.0
@@ -64,37 +13,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="My" type="ColorRect" parent="."]
-show_behind_parent = true
-material = SubResource( 2 )
-margin_right = 114.0
-mouse_filter = 2
-input_pass_on_modal_close_click = false
-color = Color( 1, 1, 1, 0 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Player" type="Label" parent="."]
-margin_top = 4.0
 margin_right = 114.0
-margin_bottom = 28.0
+margin_bottom = 24.0
+custom_colors/font_color = Color( 0, 1, 0, 1 )
 text = "Player: %s"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Planets" type="Label" parent="."]
-margin_top = 32.0
+margin_top = 28.0
 margin_right = 114.0
-margin_bottom = 56.0
+margin_bottom = 52.0
+custom_colors/font_color = Color( 0, 1, 0, 1 )
 text = "Planets: %s"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Bots" type="Label" parent="."]
-margin_top = 60.0
+margin_top = 56.0
 margin_right = 114.0
-margin_bottom = 84.0
+margin_bottom = 80.0
+custom_colors/font_color = Color( 0, 1, 0, 1 )
 text = "Bots: %s"

@@ -70,7 +70,7 @@ func ship_amount_changed(value: int) -> int:
 	model.planet_ship_amount = _current #тут срабатывает событие об изменении в модели
 	return _current
 
-func _on_planet_is_touching() -> void:
+func _on_planet_is_touching(planet, left_time) -> void:
 	pass
 
 func _on_planet_is_selected(planet) -> void:
