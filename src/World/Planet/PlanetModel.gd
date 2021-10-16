@@ -51,6 +51,9 @@ func get_planet_id() -> int:
 	return planet_id
 
 func set_owner(owner) -> void:
+	if planet_owner != null and planet_owner != owner :
+		planet_owner.emit_signal("planet_owner_is_changed", get_parent(), owner)
+
 	planet_owner = owner
 	if owner == null:
 		Events.emit_signal("planet_free", get_parent())

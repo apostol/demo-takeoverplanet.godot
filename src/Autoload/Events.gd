@@ -8,6 +8,9 @@ extends Node
 #signal player_died
 #signal quit_requested
 
+signal on_player_lose
+signal on_player_win
+
 signal node_spawned(node)
 
 signal star_system_is_spawned(star_system) # звездная система образовалась - появилась во вселенной

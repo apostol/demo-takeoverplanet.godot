@@ -44,25 +44,26 @@ func _input(event) -> void:
 			emit_signal("planet_is_selected", get_parent())
 			get_tree().set_input_as_handled()
 	if event is InputEventSingleScreenTouch:
-		if sprite.touch_rect.has_point(sprite.offset - sprite.get_local_mouse_position()):
-			pressed = event.pressed
-			time_left = 0
-			if pressed:
-				sprite.draw_layer.isEnabled = true
-				angle_is_calculating = true
+		if model.planet_owner:
+			if sprite.touch_rect.has_point(sprite.offset - sprite.get_local_mouse_position()):
+				pressed = event.pressed
+				time_left = 0
+				if pressed:
+					sprite.draw_layer.isEnabled = true
+					angle_is_calculating = true
+				else:
+					sprite.draw_layer.arc_angle_fill = 0
+					angle_is_calculating = false
+					sprite.draw_layer.isEnabled = false
 			else:
-				sprite.draw_layer.arc_angle_fill = 0
-				angle_is_calculating = false
-				sprite.draw_layer.isEnabled = false
-		else:
-			if not angle_is_calculating &&  sprite.draw_layer.isEnabled:
-				emit_signal(
-					"planet_bot_launched", 
-					get_parent(), 
-					sprite.get_global_mouse_position(), 
-					get_ship_count_to_send())
-				sprite.draw_layer.arc_angle_fill = 0
-				sprite.draw_layer.isEnabled = false
+				if not angle_is_calculating &&  sprite.draw_layer.isEnabled:
+					emit_signal(
+						"planet_bot_launched", 
+						get_parent(), 
+						sprite.get_global_mouse_position(), 
+						get_ship_count_to_send())
+					sprite.draw_layer.arc_angle_fill = 0
+					sprite.draw_layer.isEnabled = false
 	if event is InputEventSingleScreenDrag:
 		angle_is_calculating = false
 

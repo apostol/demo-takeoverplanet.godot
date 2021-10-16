@@ -1,13 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/World/GameCamera.gd" type="Script" id=1]
 [ext_resource path="res://src/Screens/HUDScreen.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/World/Player/Screen/WinScreen.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/World/GameWorld.gd" type="Script" id=4]
 [ext_resource path="res://src/Screens/CanvasLayer.gd" type="Script" id=5]
 [ext_resource path="res://assets/ui_theme.tres" type="Theme" id=6]
 [ext_resource path="res://src/World/PlayersController.gd" type="Script" id=7]
 [ext_resource path="res://src/World/StarSystem/StarSystemSpawner.gd" type="Script" id=8]
 [ext_resource path="res://src/World/Bot/BotLogic.gd" type="Script" id=9]
+[ext_resource path="res://src/World/Player/Screen/LoseScreen.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/World/StarSystem/StarSystemScreen.tscn" type="PackedScene" id=13]
 
 [node name="GameWorld" type="Node"]
@@ -30,6 +32,9 @@ script = ExtResource( 9 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource( 5 )
+
+[node name="WinScreen" parent="CanvasLayer" instance=ExtResource( 3 )]
+visible = false
 
 [node name="StarSystemScreen" parent="CanvasLayer" instance=ExtResource( 13 )]
 
@@ -55,3 +60,6 @@ theme = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="LoseScreen" parent="CanvasLayer" instance=ExtResource( 10 )]
+visible = false

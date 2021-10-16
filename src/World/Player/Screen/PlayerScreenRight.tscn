@@ -1,15 +1,17 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/World/Player/PlayerView.gd" type="Script" id=1]
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=2]
 
 [node name="PlayerScreenRight" type="VBoxContainer"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -114.0
-margin_bottom = 72.0
+margin_bottom = 42.0
 grow_horizontal = 0
 rect_pivot_offset = Vector2( 114, 0 )
 mouse_filter = 2
+theme = ExtResource( 2 )
 custom_constants/separation = 0
 script = ExtResource( 1 )
 __meta__ = {
@@ -18,23 +20,26 @@ __meta__ = {
 
 [node name="Player" type="Label" parent="."]
 margin_right = 114.0
-margin_bottom = 14.0
-text = "Player: %s"
+margin_bottom = 24.0
+text = "%s :Player"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Planets" type="Label" parent="."]
-margin_top = 14.0
+margin_top = 24.0
 margin_right = 114.0
-margin_bottom = 28.0
-text = "Planets: %s"
+margin_bottom = 48.0
+text = "%s :Planets"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Bots" type="Label" parent="."]
-margin_top = 28.0
+margin_top = 48.0
 margin_right = 114.0
-margin_bottom = 42.0
-text = "Bots: %s"
+margin_bottom = 72.0
+text = "%s :Bots"
+align = 2

@@ -5,7 +5,7 @@ const Size: float = 1600.0
 const Planet := {
 	"count": {
 		"min": 3,
-		"max": 10
+		"max": 3
 	},
 	"radius": {
 		"min": 100,

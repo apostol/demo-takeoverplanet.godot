@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/World/Player/Screen/WinScreen.gd" type="Script" id=1]
+[ext_resource path="res://src/UI/QuitButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UI/ChangeSceneButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=6]
+[ext_resource path="res://src/UI/RetryButton.tscn" type="PackedScene" id=8]
+
+[node name="WinScreen" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 6 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 196.0
+rect_clip_content = true
+size_flags_horizontal = 15
+size_flags_vertical = 15
+text = "Вы выиграли!"
+align = 1
+valign = 1
+clip_text = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseMenu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -111.0
+margin_right = 125.0
+margin_bottom = -106.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RetryButton" parent="PauseMenu" instance=ExtResource( 8 )]
+margin_top = 198.0
+margin_right = 236.0
+margin_bottom = 228.0
+text = "Retry"
+
+[node name="MainScreenButton" parent="PauseMenu" instance=ExtResource( 3 )]
+margin_top = 232.0
+margin_right = 236.0
+margin_bottom = 262.0
+text = "Main Screen"
+next_scene_path = "res://src/Screens/MainScreen.tscn"
+
+[node name="QuitButton" parent="PauseMenu" instance=ExtResource( 2 )]
+margin_top = 266.0
+margin_right = 236.0
+margin_bottom = 296.0
