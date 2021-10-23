@@ -3,7 +3,7 @@ class_name PlanetView
 
 signal planet_is_touching(planet, time_left)
 signal planet_is_selected(planet)
-signal planet_bot_launched(planet, target_position, bot_count)
+signal planet_ship_launched(planet, target_position, ship_count)
 
 onready var sprite := get_node("Animation")
 onready var collision: CollisionShape2D = get_node("CollisionShape2D")
@@ -58,7 +58,7 @@ func _input(event) -> void:
 			else:
 				if not angle_is_calculating &&  sprite.draw_layer.isEnabled:
 					emit_signal(
-						"planet_bot_launched", 
+						"planet_ship_launched", 
 						get_parent(), 
 						sprite.get_global_mouse_position(), 
 						get_ship_count_to_send())

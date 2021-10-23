@@ -16,4 +16,4 @@ func setup() -> void:
 	star_system_spawner.spawn_star_system(rnd, StarSystemSetings.Size)
 
 func _on_star_system_is_spawned(star_system) -> void:
-	players.spawn(star_system)
+	players.spawn(star_system, Global.PLAYER_LEFT, Global.PLAYER_RIGHT)

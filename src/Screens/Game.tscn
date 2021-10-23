@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/ui_theme.tres" type="Theme" id=6]
 [ext_resource path="res://src/World/PlayersController.gd" type="Script" id=7]
 [ext_resource path="res://src/World/StarSystem/StarSystemSpawner.gd" type="Script" id=8]
-[ext_resource path="res://src/World/Bot/BotLogic.gd" type="Script" id=9]
+[ext_resource path="res://src/World/Ship/ShipLogic.gd" type="Script" id=9]
 [ext_resource path="res://src/World/Player/Screen/LoseScreen.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/World/StarSystem/StarSystemScreen.tscn" type="PackedScene" id=13]
 

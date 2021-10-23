@@ -21,6 +21,6 @@ func _input(event) -> void:
 			Events.emit_signal("star_is_selected", self)
 
 func _on_Star_area_entered(area):
-	if area is Bot:
-		var bot = area as Bot
-		bot.die()
+	if area is Ship:
+		var ship = area as Ship
+		ship.die()

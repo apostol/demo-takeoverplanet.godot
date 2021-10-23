@@ -14,16 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/World/Player/Actor/Actor.gd"
 }, {
-"base": "GameObject",
-"class": "Bot",
-"language": "GDScript",
-"path": "res://src/World/Bot/Bot.gd"
-}, {
-"base": "Node",
-"class": "BotLogic",
-"language": "GDScript",
-"path": "res://src/World/Bot/BotLogic.gd"
-}, {
 "base": "Area2D",
 "class": "GameObject",
 "language": "GDScript",
@@ -99,6 +89,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/World/Player/PlayerController.gd"
 }, {
+"base": "GameObject",
+"class": "Ship",
+"language": "GDScript",
+"path": "res://src/World/Ship/Ship.gd"
+}, {
+"base": "Node",
+"class": "ShipLogic",
+"language": "GDScript",
+"path": "res://src/World/Ship/ShipLogic.gd"
+}, {
 "base": "ColorRect",
 "class": "StarSky",
 "language": "GDScript",
@@ -116,8 +116,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Actor": "",
-"Bot": "",
-"BotLogic": "",
 "GameObject": "",
 "GameWorld": "",
 "GitAPI": "",
@@ -133,6 +131,8 @@ _global_script_class_icons={
 "PlanetScreen": "",
 "PlanetView": "",
 "Player": "",
+"Ship": "",
+"ShipLogic": "",
 "StarSky": "",
 "StarSystem": "",
 "StarSystemSetings": ""
@@ -145,10 +145,10 @@ run/main_scene="res://src/Screens/MainScreen.tscn"
 
 [autoload]
 
+Global="*res://src/Autoload/Global.gd"
 InputManager="*res://lib/TIM/InputManager.gd"
 Events="*res://src/Autoload/Events.gd"
 ObjectRegistry="*res://src/Autoload/ObjectRegistry.tscn"
-Global="*res://src/Autoload/Global.gd"
 StarSystemSettings="*res://src/Autoload/StarSystemSettings.gd"
 
 [display]

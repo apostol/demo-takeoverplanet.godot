@@ -32,7 +32,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Bots" type="Label" parent="."]
+[node name="Ships" type="Label" parent="."]
 margin_top = 56.0
 margin_right = 114.0
 margin_bottom = 80.0
